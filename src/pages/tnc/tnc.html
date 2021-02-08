@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{"tnc" | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <div class="logo" text-center>
+      <img src="assets/imgs/logo.png">
+    </div>
+    <p class="heading">{{"tnc_use" | translate}}</p>
+    <p *ngIf="settings" [innerHTML]="settings.laundry_appconfig_terms"></p>
+  </div>
+</ion-content>

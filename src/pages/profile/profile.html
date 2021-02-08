@@ -1,0 +1,62 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"profile" | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="profile_img center_img" (click)="openAction()">
+		<img *ngIf="user && user.avatar_url && user.avatar_url" [src]="user.avatar_url" class="crop_img">
+		<ion-icon *ngIf="!(user && user.avatar_url && user.avatar_url)" class="zmdi zmdi-camera"></ion-icon>
+	</div>
+
+	<!-- <ion-list no-lines class="form">
+		<ion-item>
+			<ion-icon name="md-person" item-start></ion-icon>
+			<ion-label floating>{{"address_name" | translate}}</ion-label>
+			<ion-input type="text" [readonly]="isReadonly()" [(ngModel)]="user.first_name"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="md-phone-portrait" item-start></ion-icon>
+			<ion-label floating>{{"phone" | translate}}</ion-label>
+			<ion-input type="text" [readonly]="isReadonly()" [(ngModel)]="user.username"></ion-input>
+			<div class="text_box">
+				<p>{{"phone" | translate}}</p>
+				<h2></h2>
+			</div>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="md-mail" item-start></ion-icon>
+			<ion-label floating>{{"email" | translate}}</ion-label>
+			<ion-input type="text" [readonly]="isReadonly()" [(ngModel)]="user.email"></ion-input>
+		</ion-item>
+	</ion-list> -->
+
+	<ion-list no-lines class="form">
+		<ion-item>
+			<ion-icon name="md-person" item-start></ion-icon>
+			<div class="text_box">
+				<p>{{"address_name" | translate}}</p>
+				<h2>{{user.first_name}}</h2>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="md-mail" item-start></ion-icon>
+			<div class="text_box">
+				<p>{{"phone" | translate}}</p>
+				<h2>+{{user.username}}</h2>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="md-person" item-start></ion-icon>
+			<div class="text_box">
+				<p>{{"email" | translate}}</p>
+				<h2>{{user.email}}</h2>
+			</div>
+		</ion-item>
+	</ion-list>
+
+	<button ion-button full *ngIf="!user">{{"register" | translate}}</button>
+</ion-content>

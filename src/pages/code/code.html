@@ -1,0 +1,23 @@
+<ion-content class="bg-light">
+    <div class="code">
+        <h2>
+            {{"coupon_code" | translate}}
+        </h2>
+        <ion-item>
+            <ion-input type="text" value="" [(ngModel)]="cCode" placeholder="{{'enter_prom_code' | translate}}">
+            </ion-input>
+        </ion-item>
+        <ion-row>
+            <ion-col col-6>
+                <button ion-button block clear class="bg-thime btn-round btn-text" (click)="dismiss()">
+                    {{"cancel" | translate}}
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <button ion-button block class="bg-thime btn-round btn-text" (click)="checkCode()">
+                    {{"submit" | translate}}
+                </button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

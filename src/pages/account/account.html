@@ -1,0 +1,68 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{"more" | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<div class="order-head d-flex" (click)="actionNavHeader()">
+
+		<div class="img_box center_img">
+			<img *ngIf="user && user.avatar_url && user.avatar_url" [src]="user.avatar_url" class="crop_img">
+			<img *ngIf="!(user && user.avatar_url && user.avatar_url)" src="assets/imgs/logo.png"
+				class="crop_img">
+		</div>
+
+		<div class="text_box" *ngIf="user">
+			<p>{{user.first_name}}
+				<span class="d-flex">+{{user.username}}
+					<ion-icon class="zmdi zmdi-chevron-right end" text-end></ion-icon>
+				</span>
+			</p>
+		</div>
+
+		<div class="text_box" *ngIf="!user">
+			<p>{{'hey' | translate}} {{'guest' | translate}}</p>
+		</div>
+	</div>
+	<ion-list no-lines>
+		<ion-item (click)="myorders()" *ngIf="user">
+			<ion-icon class="zmdi zmdi-storage" text-start item-start></ion-icon>
+			{{"my_orders" | translate}}
+		</ion-item>
+		<ion-item (click)="myaddress()" *ngIf="user">
+			<ion-icon class="zmdi zmdi-pin" text-start item-start></ion-icon>
+			{{"my_address" | translate}}
+		</ion-item>
+		<ion-item (click)="about()">
+			<ion-icon class="zmdi zmdi-city-alt" text-start item-start></ion-icon>
+			{{"faq" | translate}}
+		</ion-item>
+		<ion-item (click)="contact()">
+			<ion-icon class="zmdi zmdi-email" text-start item-start></ion-icon>
+			{{"contact_us" | translate}}
+		</ion-item>
+
+		<ion-item (click)="chat()">
+			<ion-icon class="zmdi zmdi-comment-more" text-start item-start></ion-icon>
+			{{"chat_with_us" | translate}}
+		</ion-item>
+		<ion-item (click)="tnc()">
+			<ion-icon class="zmdi zmdi-assignment-alert" text-start item-start></ion-icon>
+			{{"tns" | translate}}
+		</ion-item>
+		<ion-item (click)="chooseLanguage()">
+			<ion-icon class="zmdi zmdi-globe" text-start item-start></ion-icon>
+			{{"change_language" | translate}}
+		</ion-item>
+		<ion-item (click)="phonenumberPage()" *ngIf="user">
+			<ion-icon class="zmdi zmdi-open-in-new" text-start item-start></ion-icon>
+			{{"logout" | translate}}
+		</ion-item>
+		<ion-item (click)="signin()" *ngIf="!user">
+			<ion-icon class="zmdi zmdi-open-in-new" text-start item-start></ion-icon>
+			{{"login" | translate}}
+		</ion-item>
+	</ion-list>
+	<!--    <p text-center class="about">Opus labs Version 2.0.101</p>-->
+</ion-content>
